@@ -18,7 +18,6 @@ import ListItemText from "@mui/material/ListItemText";
 import { styled, Theme, useTheme } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { useRouter } from "next/navigation";
 import * as React from "react";
 
 const drawerWidth = 240;
@@ -112,7 +111,7 @@ export default function LSSidebar({
   ];
 
   const [heading, setHeading] = React.useState(drawerItem[0].text);
-  const navigate = useRouter();
+
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
