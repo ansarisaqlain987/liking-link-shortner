@@ -57,7 +57,7 @@ export default function LSTable({
           {tableBody.length === 0 ? (
             <StyledTableRow>
               <StyledTableCell colSpan={tableHead.length} align="center">
-                No data available
+                No Data !!!
               </StyledTableCell>
             </StyledTableRow>
           ) : (
