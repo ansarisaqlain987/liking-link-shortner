@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "mig:create": "npx drizzle-kit generate",
+    "mig:gen": "npx drizzle-kit generate",
     "mig:run": "npx drizzle-kit migrate"
   },
   "dependencies": {
