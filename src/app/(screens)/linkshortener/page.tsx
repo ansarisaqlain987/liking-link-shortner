@@ -3,21 +3,19 @@ import { Dialog } from "@/app/components/Dialog";
 import {
   SignedIn,
   SignedOut,
-  SignIn,
   SignInButton,
   SignOutButton,
-  UserButton,
 } from "@clerk/nextjs";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const LinkShortener = () => {
   const [userLink, setUserLink] = useState<string>("");
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserLink(e.target.value);
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(userLink);
   };
@@ -30,6 +28,19 @@ const LinkShortener = () => {
 
   const [dialogOpen, setDialogOpen] = useState(false);
 
+  const handleLogout = () => {
+    setDialogOpen(true);
+    return (
+      <Dialog
+        open={dialogOpen}
+        title="Confirm Logout"
+        message="Do you really want to logout !!!"
+        positive={() => <SignOutButton />}
+        negative={() => setDialogOpen(false)}
+        positiveLabel="Signout"
+      />
+    );
+  };
   return (
     <div className="min-h-screen bg-[#021746] font-sans text-white">
       <header className="flex justify-between p-5 text-2xl">
@@ -72,7 +83,7 @@ const LinkShortener = () => {
               <li>Reviews</li>
               <li
                 className="bg-[#142b5c] hover:bg-[#122242] p-2 rounded"
-                onClick={() => setDialogOpen(true)}
+                onClick={() => handleLogout()}
               >
                 SignOut
               </li>
@@ -108,29 +119,23 @@ const LinkShortener = () => {
           </p>
         </section>
         <section className="flex md:flex-row flex-col gap-5 md:text-2xl font-semibold md:mt-10">
-          <input
-            type="search"
-            placeholder="Cole o link original"
-            className="md:w-[30rem] w-full md:p-4 p-2 rounded-[1rem] text-black"
-            value={userLink}
-            onChange={handleChange}
-          />
-          <button
-            className="bg-[#f57b65] md:p-4 p-2 rounded-[1rem] md:w-[8rem]"
-            onClick={handleSubmit}
-          >
-            Criar
-          </button>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="search"
+              placeholder="Cole o link original"
+              className="md:w-[30rem] w-full md:p-4 p-2 rounded-[1rem] text-black"
+              value={userLink}
+              onChange={handleChange}
+            />
+            <button
+              className="bg-[#f57b65] md:p-4 p-2 rounded-[1rem] md:w-[8rem]"
+              type="submit"
+            >
+              Criar
+            </button>
+          </form>
         </section>
       </main>
-      <Dialog
-        open={dialogOpen}
-        title="Confirm Logout"
-        message="Do you really want to logout !!!"
-        positive={() => <SignOutButton />}
-        negative={() => setDialogOpen(false)}
-        positiveLabel="Signout"
-      />
     </div>
   );
 };
