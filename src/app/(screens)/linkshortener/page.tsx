@@ -28,19 +28,6 @@ const LinkShortener = () => {
 
   const [dialogOpen, setDialogOpen] = useState(false);
 
-  const handleLogout = () => {
-    setDialogOpen(true);
-    return (
-      <Dialog
-        open={dialogOpen}
-        title="Confirm Logout"
-        message="Do you really want to logout !!!"
-        positive={() => <SignOutButton />}
-        negative={() => setDialogOpen(false)}
-        positiveLabel="Signout"
-      />
-    );
-  };
   return (
     <div className="min-h-screen bg-[#021746] font-sans text-white">
       <header className="flex justify-between p-5 text-2xl">
@@ -83,7 +70,7 @@ const LinkShortener = () => {
               <li>Reviews</li>
               <li
                 className="bg-[#142b5c] hover:bg-[#122242] p-2 rounded"
-                onClick={() => handleLogout()}
+                onClick={() => setDialogOpen(true)}
               >
                 SignOut
               </li>
@@ -136,6 +123,14 @@ const LinkShortener = () => {
           </form>
         </section>
       </main>
+      <Dialog
+        open={dialogOpen}
+        title="Confirm Logout"
+        message="Do you really want to logout !!!"
+        positive={() => <SignOutButton />}
+        negative={() => setDialogOpen(false)}
+        positiveLabel="Signout"
+      />
     </div>
   );
 };
