@@ -1,11 +1,7 @@
-import LinkShortener from "./(screens)/linkshortener/page";
+import LinkShortener from "./(screen)/linkshortener/page";
 
 const page = () => {
-  return (
-    <>
-      <LinkShortener />
-    </>
-  );
+  return <LinkShortener />;
 };
 
 export default page;
