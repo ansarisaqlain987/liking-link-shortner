@@ -17,9 +17,9 @@ const LinkShortener = () => {
   };
 
   return (
-    <main className="flex flex-col justify-center items-center md:min-h-[40rem] m-2 text-white text-center">
+    <main className="flex flex-col justify-center items-center 2xl:min-h-screen md:min-h-[40rem] m-2 text-white text-center">
       <section>
-        <h1 className="md:text-[4rem] text-[2rem] font-bold leading-none">
+        <h1 className="md:text-[4rem] text-[2rem] font-bold leading-tight">
           Crie <span className="text-[#f57b65]">Links</span> atrativos
           <br /> com um clique
         </h1>
@@ -35,7 +35,7 @@ const LinkShortener = () => {
           <input
             type="search"
             placeholder="Cole o link original"
-            className="md:w-[30rem] w-full md:p-4 p-2 md:rounded-[1rem] rounded-full text-black"
+            className="md:w-[40rem] w-full x-10 md:p-4 p-2 md:rounded-[1rem] rounded-full text-black"
             value={userLink}
             onChange={handleChange}
           />
