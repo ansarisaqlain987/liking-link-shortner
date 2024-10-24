@@ -23,11 +23,14 @@ const Header = () => {
 
   return (
     <div>
-      <header className="flex justify-between items-center p-5 2xl:text-4xl lg:text-3xl md:text-2xl text-lg text-white">
+      <header
+        className="flex justify-between items-center p-5 2xl:text-4xl lg:text-3xl md:text-2xl text-lg"
+        style={{ color: "var(--primaryText)" }}
+      >
         <h1>Link Shortener</h1>
         <nav>
           <SignedOut>
-            <div className="bg-[#142b5c] hover:bg-[#122242] p-2 rounded ">
+            <div className="bg-primaryColor hover:bg-primaryHover p-2 rounded ">
               <SignInButton />
             </div>
           </SignedOut>
@@ -35,7 +38,8 @@ const Header = () => {
             <div className="flex items-center md:hidden">
               <button
                 onClick={toggleMenu}
-                className="text-white focus:outline-none"
+                className=" focus:outline-none"
+                style={{ color: "var(--primaryText)" }}
               >
                 {/* Hamburger Icon */}
                 <svg
@@ -68,7 +72,7 @@ const Header = () => {
             <ul
               className={`${
                 isOpen ? "block" : "hidden"
-              } flex flex-col gap-3 mt-3 md:hidden bg-[#142b5c] p-5 rounded-md absolute right-0 m-4 text-white`}
+              } flex flex-col gap-3 mt-3 md:hidden bg-primaryColor p-5 rounded-md absolute right-0 m-4 text-primaryText`}
             >
               <li>Home</li>
               <li>About</li>

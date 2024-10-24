@@ -9,7 +9,6 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { Button } from "@/components/ui/button";
 
 interface DialogAction {
   open: boolean;
@@ -32,13 +31,13 @@ export function Dialog(props: Readonly<DialogAction>) {
         <AlertDialogFooter>
           <AlertDialogCancel
             onClick={props?.negative}
-            className="bg-[#1d3f88] hover:bg-[#15234e] hover:text-white text-white"
+            className="bg-primaryColor hover:bg-primaryHover hover:text-primaryText text-primaryText"
           >
             {props?.negativeLabel ?? "Cancel"}
           </AlertDialogCancel>
           <AlertDialogAction
             onClick={props?.positive}
-            className="bg-[#1d3f88] hover:bg-[#15234e] hover:text-white text-white"
+            className="bg-primaryColor hover:bg-primaryHover hover:text-primaryText text-primaryText"
           >
             {props?.positiveLabel ?? "Continue"}
           </AlertDialogAction>
